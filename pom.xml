@@ -71,6 +71,11 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
         <dependency>
+            <!-- Spring Mail pour l'envoi d'emails -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+        <dependency>
             <!-- SGBD H2 pour le développement -->
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>

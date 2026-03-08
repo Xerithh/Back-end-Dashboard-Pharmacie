@@ -181,3 +181,38 @@ INSERT INTO LIGNE (COMMANDE_NUMERO, MEDICAMENT_REFERENCE, QUANTITE) VALUES
 (6, 6, 110), (6, 16, 65), (6, 26, 85), (6, 36, 60), (6, 91, 70),
 (7, 7, 80), (7, 17, 50), (7, 27, 95), (7, 37, 55), (7, 100, 45),
 (8, 8, 100), (8, 18, 75), (8, 28, 80), (8, 38, 70), (8, 48, 60);
+
+-- Insertion des fournisseurs
+INSERT INTO FOURNISSEUR (ID, NOM, EMAIL) VALUES
+(1, 'PharmaDistrib Dakar', 'pharmacie+pharmadistrib@gmail.com'),
+(2, 'MediSupply Sénégal', 'pharmacie+medisupply@gmail.com'),
+(3, 'BioMed Afrique', 'pharmacie+biomed@gmail.com'),
+(4, 'Santé Plus Distribution', 'pharmacie+santeplus@gmail.com'),
+(5, 'PharmaCare International', 'pharmacie+pharmacare@gmail.com'),
+(6, 'Global Health Supplies', 'pharmacie+globalhealth@gmail.com');
+ALTER TABLE Fournisseur ALTER COLUMN id RESTART WITH 7;
+
+-- Association des fournisseurs aux catégories (chaque catégorie a au moins 2 fournisseurs)
+-- PharmaDistrib Dakar fournit les catégories 1, 2, 3, 4, 5
+INSERT INTO FOURNISSEUR_CATEGORIE (FOURNISSEUR_ID, CATEGORIE_CODE) VALUES
+(1, 1), (1, 2), (1, 3), (1, 4), (1, 5);
+
+-- MediSupply Sénégal fournit les catégories 1, 2, 6, 7, 8
+INSERT INTO FOURNISSEUR_CATEGORIE (FOURNISSEUR_ID, CATEGORIE_CODE) VALUES
+(2, 1), (2, 2), (2, 6), (2, 7), (2, 8);
+
+-- BioMed Afrique fournit les catégories 3, 4, 5, 9, 10
+INSERT INTO FOURNISSEUR_CATEGORIE (FOURNISSEUR_ID, CATEGORIE_CODE) VALUES
+(3, 3), (3, 4), (3, 5), (3, 9), (3, 10);
+
+-- Santé Plus Distribution fournit les catégories 6, 7, 8, 9
+INSERT INTO FOURNISSEUR_CATEGORIE (FOURNISSEUR_ID, CATEGORIE_CODE) VALUES
+(4, 6), (4, 7), (4, 8), (4, 9);
+
+-- PharmaCare International fournit les catégories 1, 3, 5, 7, 9
+INSERT INTO FOURNISSEUR_CATEGORIE (FOURNISSEUR_ID, CATEGORIE_CODE) VALUES
+(5, 1), (5, 3), (5, 5), (5, 7), (5, 9);
+
+-- Global Health Supplies fournit les catégories 2, 4, 6, 8, 10
+INSERT INTO FOURNISSEUR_CATEGORIE (FOURNISSEUR_ID, CATEGORIE_CODE) VALUES
+(6, 2), (6, 4), (6, 6), (6, 8), (6, 10);
